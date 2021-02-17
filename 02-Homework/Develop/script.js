@@ -37,11 +37,25 @@ function generatePassword (){
     alert("Your password will be" + totalLength + "characters long.");
   }
 
+
+  // this will make the password actually random and give the user a unique value
+
+  for (var i = 0; i < totalLength; i++){
+    var random = Math.floor(Math.random() * passwordHolder.length);
+    password = password + passwordHolder[random];
+  }
+
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+
   // Alerts to confirm the rest of the variables the user might want
 
   var filterLower = confirm("Would you like to have lowercase letters in your password?");
+
   var filterUpper = confirm("Do you want to add uppercase letters into your password?");
+
   var filterNumbers = confirm("Do you wnat top add numbers?");
+
   var filterSymbols = confirm("Do you wan to add symbols?");
 
 
@@ -65,11 +79,13 @@ function generatePassword (){
     }
   }
 
-  if (filterSymbols === true){
+  if (filterLower === true){
     for (var i = 0; i < lowerCase.length; i++){
       passwordHolder.push(lowerCase[i]);
     }
   }
+
+
 }
 
 // Add event listener to generate button
