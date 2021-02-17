@@ -42,7 +42,7 @@ function generatePassword (){
 
   for (var i = 0; i < totalLength; i++){
     var random = Math.floor(Math.random() * passwordHolder.length);
-    password = password + passwordHolder[random];
+    password = password + passwordButton[random];
   }
 
   var passwordText = document.querySelector("#password");
@@ -63,25 +63,25 @@ function generatePassword (){
 
   if (filterSymbols === true){
     for (var i = 0; i < symbols.length; i++){
-      passwordHolder.push(symbols[i]);
+      passwordButton.push(symbols[i]);
     }
   }
 
   if (filterNumbers === true){
     for (var i = 0; i < numbers.length; i++){
-      passwordHolder.push(numbers[i]);
+      passwordButton.push(numbers[i]);
     }
   }
 
   if (filterUpper === true){
     for (var i = 0; i < upperCase.length; i++){
-      passwordHolder.push(upperCase[i]);
+      passwordButton.push(upperCase[i]);
     }
   }
 
   if (filterLower === true){
     for (var i = 0; i < lowerCase.length; i++){
-      passwordHolder.push(lowerCase[i]);
+      passwordButton.push(lowerCase[i]);
     }
   }
 
