@@ -25,7 +25,51 @@ function generatePassword (){
 
   var totalLength = parseInt(prompt("Please choose a number between 8 through 128"));
 
-  
+  if (!totalLength) {
+    alert("Please input a number.");
+    return;
+  }
+  else if ( totalLength < 8 || totalLength > 128) {
+    alert("Please choose a number between the given perameters.");
+    return;
+  }
+  else{
+    alert("Your password will be" + totalLength + "characters long.");
+  }
+
+  // Alerts to confirm the rest of the variables the user might want
+
+  var filterLower = confirm("Would you like to have lowercase letters in your password?");
+  var filterUpper = confirm("Do you want to add uppercase letters into your password?");
+  var filterNumbers = confirm("Do you wnat top add numbers?");
+  var filterSymbols = confirm("Do you wan to add symbols?");
+
+
+  // loops to make a password based on what the user input
+
+  if (filterSymbols === true){
+    for (var i = 0; i < symbols.length; i++){
+      passwordHolder.push(symbols[i]);
+    }
+  }
+
+  if (filterNumbers === true){
+    for (var i = 0; i < numbers.length; i++){
+      passwordHolder.push(numbers[i]);
+    }
+  }
+
+  if (filterUpper === true){
+    for (var i = 0; i < upperCase.length; i++){
+      passwordHolder.push(upperCase[i]);
+    }
+  }
+
+  if (filterSymbols === true){
+    for (var i = 0; i < lowerCase.length; i++){
+      passwordHolder.push(lowerCase[i]);
+    }
+  }
 }
 
 // Add event listener to generate button
