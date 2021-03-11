@@ -11,8 +11,6 @@ var symbols = ["!","@","#","$","%","^","&","*","(",")","{","}","[","]","<",">","
 var numbers = [0,1,2,3,4,5,6,7,8,9];
 
 
-let upperCase
-
 //Prompt to instruct user on how to use and to begin
 
 window.load = alert("Say hello to the password generator! Let's Begin.")
@@ -40,17 +38,6 @@ function generatePassword (){
   else{
     alert("Your password will be" + totalLength + "characters long.");
   }
-
-
-  // this will make the password actually random and give the user a unique value
-
-  for (var i = 0; i < totalLength; i++){
-    var random = Math.floor(Math.random() * passwordHolder.length);
-    password = password + passwordButton[random];
-  }
-
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
 
   // Alerts to confirm the rest of the variables the user might want
 
@@ -89,8 +76,14 @@ function generatePassword (){
     }
   }
 
+  // this will make the password actually random and give the user a unique value
+
+  for (var i = 0; i < totalLength; i++){
+    var random = Math.floor(Math.random() * passwordButton.length);
+    password = password + passwordButton[random];
+  }
+
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
 
 }
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
